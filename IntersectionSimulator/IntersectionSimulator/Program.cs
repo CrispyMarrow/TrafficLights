@@ -5,9 +5,12 @@ namespace IntersectionSimulator
 {
     class Program
     {
-        // Use to manipulate speed of time in whole application;
-        //public static readonly int TimeCoefficient = 1000;
+        // Use to manipulate time scale in application;        
+        // Use this for honest 30 mintues simulation
+        public static readonly int TimeCoefficient = 1000;        
+        // Use this for speeded up simulation
         public const int TimeCoefficient = 10;
+        
         public const int IntervalOfDirection = 5 * 60 * TimeCoefficient;
         public const int IntervalOfYellow = 30 * TimeCoefficient;
         public const int TimeToSimulate = 30 * 60 * TimeCoefficient;
@@ -16,7 +19,7 @@ namespace IntersectionSimulator
         {
             Console.WriteLine("Simulator: set of traffic lights on intersection.");
             Console.WriteLine("Output is in following format:");
-            Console.WriteLine("[timestamp] : Traffic light direction [ Red Yellow Green ]");
+            Console.WriteLine("[ timestamp ] : Traffic light direction [ Red Yellow Green ]");
             Console.WriteLine("For each color:\n'*' - color is on\n'o' - color is off\n");
 
             var intersection = new Intersection( IntervalOfDirection );
@@ -34,10 +37,10 @@ namespace IntersectionSimulator
 
             intersection.Stop();
 
-            Console.ReadLine();
+            Console.ReadKey();
         }
 
-        // Used to display time in console output
+        // Is used to display time in console output
         private static DateTime _startTime;
         private static void OnLightSwitch( ITrafficLight trafficLight )
         {
