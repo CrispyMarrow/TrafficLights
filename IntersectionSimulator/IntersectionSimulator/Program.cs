@@ -5,14 +5,21 @@ namespace IntersectionSimulator
 {
     class Program
     {
-        // Use to manipulate time scale in application;        
-        // Use this for honest 30 mintues simulation
-        public static readonly int TimeCoefficient = 1000;        
-        // Use this for speeded up simulation
-        public const int TimeCoefficient = 10;
+        // Use TimeCoefficient to manipulate time scale in application;
         
+        // Use this for honest 30 mintues simulation
+        public const int TimeCoefficient = 1000;
+        
+        // Use this for speeded up simulation
+        //public const int TimeCoefficient = 10;
+        
+        // Interval of switching directions NS -> EW -> NS and so on.
         public const int IntervalOfDirection = 5 * 60 * TimeCoefficient;
+        
+        // How long will yellow be shown, during switch Green -> Red.
         public const int IntervalOfYellow = 30 * TimeCoefficient;
+        
+        // How long to wait before stoping simulation
         public const int TimeToSimulate = 30 * 60 * TimeCoefficient;
 
         static void Main(string[] args)
