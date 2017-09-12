@@ -109,6 +109,10 @@ namespace IntersectionSimulatorTests
 
             Thread.Sleep( timeStillOn );
             Assert.IsTrue( trafficLight.LightsState[LightColor.Yellow] );
+            
+            // in reality this would happen automatically 
+            intersection.SwitchToNS();
+            Assert.IsFalse(trafficLight.LightsState[LightColor.Yellow]);
         }
 
         private class IntersectionStub : IDirectionSwitcher
