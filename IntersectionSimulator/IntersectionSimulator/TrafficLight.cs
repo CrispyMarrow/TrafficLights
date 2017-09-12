@@ -19,6 +19,11 @@ namespace IntersectionSimulator
         public Direction Direction { get; private set; }
         public Dictionary<LightColor, bool> LightsState
         {
+            // Creating new Dictionary will prevent modifying of LightsState
+            // by any outside users of this class.
+            // Note: it currently works because both Key and Value are primitive types.
+            // If either will be changed to reference type,
+            // make sure to create here deep copy or switch to other implementation at all.
             get { return new Dictionary<LightColor, bool>( _lights ); }
         } 
 
