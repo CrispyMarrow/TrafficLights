@@ -43,6 +43,7 @@ namespace IntersectionSimulator
             Thread.Sleep( TimeToSimulate );
 
             intersection.Stop();
+            Console.WriteLine("\nDone");
 
             Console.ReadKey();
         }
